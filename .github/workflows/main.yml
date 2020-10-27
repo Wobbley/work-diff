@@ -4,7 +4,7 @@ name: CI
 
 env:
   resourcegroup: work-diff
-  containerregistry: workDiffCR.azurecr.io>
+  containerregistry: workDiffCR.azurecr.io
   registryusername: workDiffCR
   imagename: workDiffCR.azurecr.io/lozo/work-diff
 
