@@ -37,9 +37,3 @@ jobs:
       - run: |
           docker build . -t ${{ env.imagename }}:${{ github.sha }}
           docker push ${{ env.imagename }}:${{ github.sha }}
-
-      - name: Upload arm templates to workflow
-        uses: actions/upload-artifact@v2
-        with:
-          name: armtemplate
-          path: ${{ github.workspace }}/armtemplate/
