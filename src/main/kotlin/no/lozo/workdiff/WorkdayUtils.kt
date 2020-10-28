@@ -4,8 +4,8 @@ import java.time.DayOfWeek
 import java.time.LocalDate
 import java.time.temporal.ChronoUnit
 
-fun calculateWorkDays(start: LocalDate = LocalDate.now().minusMonths(2),
-                      end: LocalDate = LocalDate.now()): Int {
+fun calculateWorkDays(start: LocalDate,
+                      end: LocalDate): Int {
 
     val holidays = arrayListOf<LocalDate>(LocalDate.of(2021, 5, 1))
 

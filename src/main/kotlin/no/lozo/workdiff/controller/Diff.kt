@@ -21,14 +21,13 @@ class Diff {
         val (workspaceId, apiKey, start, end) = diffRequest;
 
         val loggedSeconds = ClockifyClient.getSummaryReport(workspaceId, apiKey, start, end).toDuration(DurationUnit.SECONDS)
-        val workingDays = calculateWorkDays(diffRequest.start, diffRequest.end)
+        val workingDays = calculateWorkDays(diffRequest.startDate, diffRequest.endDate)
         val workingSeconds = workingDays.times(8).times(60).times(60).toDuration(DurationUnit.SECONDS)
         val diffSeconds = loggedSeconds.minus(workingSeconds)
 
         return DiffResponse(
-                loggedSeconds.inSeconds.toInt(),
-                workingSeconds.inSeconds.toInt(),
-                diffSeconds.inMinutes.toInt(),
+                loggedSeconds.inHours,
+                workingSeconds.inHours,
                 diffSeconds.inHours)
     }
 }
