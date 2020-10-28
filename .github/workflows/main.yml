@@ -35,5 +35,5 @@ jobs:
           password: ${{ secrets.REGISTRY_PASSWORD }}
 
       - run: |
-          docker build . -t ${{ env.imagename }}:${{ github.sha }}
+          docker build . -t ${{ env.imagename }}:${{ github.sha }} -t ${{ env.imagename }}:latest
           docker push ${{ env.imagename }}:${{ github.sha }}
