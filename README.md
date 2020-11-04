@@ -1,4 +1,4 @@
-# Work Diff ![Build and deploy to Azure Web App](https://github.com/Wobbley/work-diff/workflows/Build%20and%20deploy%20to%20Azure%20Web%20App/badge.svg)
+# Work Diff ![Build and deploy to Azure](https://github.com/Wobbley/work-diff/workflows/Build%20and%20deploy%20to%20Azure/badge.svg?branch=main)
 
 Checks logged hours versus expected work hours using clockify.
 
