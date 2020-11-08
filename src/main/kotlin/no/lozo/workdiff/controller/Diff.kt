@@ -18,11 +18,11 @@ class Diff {
     @ExperimentalTime
     fun difference(@RequestBody diffRequest: DiffRequest): DiffResponse {
 
-        val (workspaceId, apiKey, start, end) = diffRequest;
+        val (workspaceId, apiKey, start, end, hoursInWorkday) = diffRequest;
 
         val loggedSeconds = ClockifyClient.getSummaryReport(workspaceId, apiKey, start, end).toDuration(DurationUnit.SECONDS)
         val workingDays = calculateWorkDays(diffRequest.startDate, diffRequest.endDate)
-        val workingSeconds = workingDays.times(8).times(60).times(60).toDuration(DurationUnit.SECONDS)
+        val workingSeconds = workingDays.times(hoursInWorkday).times(60).times(60).toDuration(DurationUnit.SECONDS)
         val diffSeconds = loggedSeconds.minus(workingSeconds)
 
         return DiffResponse(
